@@ -4,7 +4,7 @@ import css from "./Header.module.css";
 export const Header = () => {
   return (
     <header className={css.header}>
-      <Link href="/" aria-label="Home">
+      <Link href="/" className={css.logo} aria-label="Home">
         <svg
           width="102"
           height="16"
