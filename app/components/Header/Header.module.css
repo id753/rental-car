@@ -1,0 +1,33 @@
+.header {
+  background: var(--badges);
+  border-bottom: 1px solid var(--badges);
+  padding: 24px 120px;
+  height: 68px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+.navigation li a {
+  text-decoration: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.navigation li a:hover {
+  color: var(--button-hover);
+}
