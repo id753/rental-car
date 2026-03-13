@@ -1,7 +1,12 @@
 import React from "react";
+import Filter from "../components/Filter/Filter";
 
 const page = () => {
-  return <div></div>;
+  return (
+    <section>
+      <Filter />
+    </section>
+  );
 };
 
 export default page;

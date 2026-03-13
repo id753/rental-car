@@ -1,0 +1,38 @@
+.filterContainer {
+  max-width: 924px;
+  min-height: 68px;
+}
+.form {
+}
+.label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+}
+.select {
+}
+
+.kmGroup {
+}
+.inputWrapper {
+}
+.inputFrom {
+}
+.inputTo {
+}
+
+.button {
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background: var(--button);
+
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+}
