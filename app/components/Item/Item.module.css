@@ -1,0 +1,97 @@
+.container {
+  max-width: 276px;
+  min-height: 424px;
+
+  flex-direction: column;
+  height: 100%; /* Чтобы карточки в ряду были одной высоты */
+}
+.image {
+  border: none;
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+
+  object-fit: cover; /* Чтобы фото не сплющивалось */
+}
+.groupTitle {
+  display: flex;
+  justify-content: space-between;
+  color: var(--main);
+  margin-top: 16px;
+}
+.name {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Если название слишком длинное */
+}
+
+.price {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+
+  margin-right: 11px;
+}
+
+.groupTags {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+
+  margin-top: 8px;
+
+  display: flex;
+  flex-wrap: wrap; /* Чтобы теги переносились на новую строку */
+  gap: 6px;
+  margin-bottom: 28px;
+
+  max-width: 215px;
+}
+.tag {
+  display: flex;
+  align-items: center;
+}
+
+/* Добавляем разделительную палочку между тегами, кроме последнего */
+.tag:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background-color: var(--gray-light);
+  margin-left: 6px;
+}
+
+.button {
+  margin-top: auto; /* Прижмет кнопку к низу карточки */
+  border: none;
+  cursor: pointer;
+
+  border-radius: 12px;
+  padding: 12px 40px;
+  width: 100%;
+  background: var(--button);
+
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+}
+
+.button:hover {
+  background: var(--button-hover);
+}
