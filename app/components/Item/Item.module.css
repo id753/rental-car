@@ -3,7 +3,7 @@
   min-height: 424px;
 
   flex-direction: column;
-  height: 100%; /* Чтобы карточки в ряду были одной высоты */
+  height: 100%;
 }
 .image {
   border: none;
@@ -16,7 +16,7 @@
     rgba(18, 20, 23, 0.5) 100%
   );
 
-  object-fit: cover; /* Чтобы фото не сплющивалось */
+  object-fit: cover;
 }
 .containerImage {
   position: relative;
@@ -63,7 +63,7 @@
   margin-top: 8px;
 
   display: flex;
-  flex-wrap: wrap; /* Чтобы теги переносились на новую строку */
+  flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 28px;
 
@@ -74,7 +74,6 @@
   align-items: center;
 }
 
-/* Добавляем разделительную палочку между тегами, кроме последнего */
 .tag:not(:last-child)::after {
   content: "";
   display: inline-block;
@@ -85,7 +84,7 @@
 }
 
 .button {
-  margin-top: auto; /* Прижмет кнопку к низу карточки */
+  margin-top: auto;
   border: none;
   cursor: pointer;
 
