@@ -1,12 +1,24 @@
-import React from "react";
-import css from "./Catalog.module.css";
+// components/Catalog/Catalog.tsx
+import { Car } from "../../lib/api";
 import Item from "../Item/Item";
+import css from "./Catalog.module.css";
 
-const Catalog = () => {
+interface CatalogProps {
+  cars: Car[];
+}
+
+const Catalog = ({ cars }: CatalogProps) => {
+  console.log("Catalog");
+
   return (
-    <div>
-      <Item />
-    </div>
+    <ul className={css.list}>
+      {cars.map((item) => (
+        <li key={item.id}>
+          <Item car={item} />
+          {/* {item.brand} {item.model} */}
+        </li>
+      ))}
+    </ul>
   );
 };
 
