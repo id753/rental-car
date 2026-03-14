@@ -4,7 +4,7 @@ import css from "./Filter.module.css";
 
 const Filter = () => {
   return (
-    <div className="css.filterContainer">
+    <div className={css.filterContainer}>
       {/* <form className={css.form} action={handleSubmit}> */}
       <form className={css.form}>
         <label className={css.label}>

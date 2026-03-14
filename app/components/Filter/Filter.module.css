@@ -1,8 +1,10 @@
 .filterContainer {
-  max-width: 924px;
   min-height: 68px;
+  margin-top: 84px;
 }
 .form {
+  display: flex;
+  align-items: center;
 }
 .label {
   font-family: var(--font-family);
@@ -10,20 +12,61 @@
   font-size: 12px;
   line-height: 133%;
   color: var(--gray);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-right: 16px;
 }
 .select {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 204px;
+  height: 44px;
+  background: var(--inputs);
+
+  border: none; /* Убирает саму рамку */
+  outline: none; /* Убирает синий контур при клике */
+  /* Самое важное: убирает стандартную стрелочку и стили ОС */
+  /* appearance: none;  */
 }
 
 .kmGroup {
+  display: inline-block;
+  /* outline: none;
+  appearance: none; */
 }
 .inputWrapper {
+  /* margin-right: 16px; */
 }
-.inputFrom {
-}
+
+.inputFrom,
 .inputTo {
+  border-right: 1px solid var(--gray-light);
+  border-radius: 12px 0 0 12px;
+  max-width: 160px;
+  height: 44px;
+  background: var(--inputs);
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+
+  border: none; /* Убирает саму рамку */
+  outline: none; /* Убирает синий контур при клике */
 }
 
 .button {
+  border: none;
   border-radius: 12px;
   padding: 12px 51px;
   width: 156px;
@@ -35,4 +78,19 @@
   font-size: 16px;
   line-height: 125%;
   color: var(--white);
+
+  margin-left: 16px;
+  margin-top: auto;
+}
+
+.kmGroup {
+  border: none; /* Убирает рамку */
+  padding: 0; /* Убирает стандартные внутренние отступы */
+  margin: 0; /* Убирает внешние отступы */
+  min-width: 0; /* Сбрасывает стандартную минимальную ширину в некоторых браузерах */
+}
+
+.kmGroup legend {
+  padding: 0;
+  margin-bottom: 8px; /* Расстояние до инпутов */
 }
