@@ -1,11 +1,16 @@
 import Image from "next/image";
 import css from "./Item.module.css";
 import React from "react";
+import { HeartIcon } from "../Icons/Icons";
 
 const Item = () => {
+  const isFavorite = false;
   return (
     <div className={css.container}>
-      <Image src="/" alt="" width="401" height="268" className={css.image} />
+      <div className={css.containerImage}>
+        <Image src="/" alt="" width="401" height="268" className={css.image} />
+        <HeartIcon isFavorite={isFavorite} className={css.heartIcon} />
+      </div>
 
       <div className={css.groupTitle}>
         <h2 className={css.name}>Buick Enclave, 2008</h2>
