@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import ItemDetails from "../../../components/ItemDetails/ItemDetails";
 import { getCarById } from "../../../services/lib/api";
 import {
@@ -11,6 +12,40 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const car = await getCarById(id);
+
+  const title = `${car.brand} ${car.model} (${car.year})`;
+  const description = `Rent ${car.brand} ${car.model} for only ${car.rentalPrice}$. ${car.engineSize} engine, ${car.mileage} km mileage. Book now!`;
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: `Rent ${title} | Rental Car`,
+      description: description,
+      url: `https://your-project-url.vercel.app/catalog/${id}`, //   на свой URL
+      siteName: "Rental Car",
+      images: [
+        {
+          url: car.img || "/back-img-homepage-car.jpg",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: [car.img || "/back-img-homepage-car.jpg"],
+    },
+  };
+}
+
 const CarPage = async ({ params }: Props) => {
   const { id } = await params;
   const queryClient = new QueryClient();
@@ -21,7 +56,6 @@ const CarPage = async ({ params }: Props) => {
   });
 
   const car = await getCarById(id);
-  // console.log(car);
 
   return (
     <section>

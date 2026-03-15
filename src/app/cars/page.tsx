@@ -9,6 +9,12 @@ interface PageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 
+export const metadata = {
+  title: "Catalog",
+  description:
+    "Browse our extensive fleet of rental cars. From economy to luxury, find the perfect match for your trip.",
+};
+
 const CatalogPage = async ({ searchParams }: PageProps) => {
   const filters = await searchParams;
 
@@ -20,10 +26,6 @@ const CatalogPage = async ({ searchParams }: PageProps) => {
       <Filter brands={brands} />
 
       {data.cars && data.cars.length > 0 ? (
-        /* key={JSON.stringify(filters)} — это ОЧЕНЬ важно. 
-           Когда фильтры меняются, React полностью пересоздаст компонент Catalog, 
-           что сбросит его внутренний стейт (страницу пагинации и список машин).
-        */
         <Catalog
           key={JSON.stringify(filters)}
           initialCars={data.cars}

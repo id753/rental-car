@@ -15,9 +15,27 @@ const interSans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rental Car",
+  title: "Rental Car | Reliable and budget-friendly rentals",
   description:
-    "Find your perfect rental car. Reliable and budget-friendly rentals for any journey",
+    "Find your perfect rental car in Ukraine. We offer reliable, budget-friendly car rentals for any journey with a wide selection of vehicles.",
+
+  openGraph: {
+    title: "Rental Car | Best Car Rental Service",
+    description:
+      "Wide selection of cars for any journey. Fast booking and reliable service.",
+    url: "https://your-project-url.vercel.app", // Заменить на  реальный URL после деплоя
+    siteName: "Rental Car",
+    images: [
+      {
+        url: "/back-img-homepage-car.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Rental Car Service",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
