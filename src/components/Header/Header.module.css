@@ -1,6 +1,5 @@
 .header {
   background: var(--badges);
-  /* background: #ff0202; */
   border-bottom: 1px solid var(--badges);
   width: 100%;
   height: 68px;
