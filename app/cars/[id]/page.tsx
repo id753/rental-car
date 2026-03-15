@@ -21,6 +21,7 @@ const CarPage = async ({ params }: Props) => {
   });
 
   const car = await getCarById(id);
+  // console.log(car);
 
   return (
     <section>

@@ -29,6 +29,10 @@ const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
     refetchOnMount: false,
   });
 
+  const addressParts = car.address.split(",");
+  const city = addressParts[1]?.trim();
+  const country = addressParts[2]?.trim();
+
   const { draft, setDraft, clearDraft } = useFormDraftStore();
 
   const { mutate } = useMutation({
@@ -135,7 +139,7 @@ const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
             <div className={css.locationGroup}>
               <p className={css.location}>
                 <LocationIcon />
-                {car.address}
+                {city}, {country}
               </p>
               <p className={css.mileage}>Mileage: {car.mileage} km</p>
             </div>

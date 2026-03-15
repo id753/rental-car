@@ -14,6 +14,10 @@ const Item = ({ car }: ItemProps) => {
   const { toggleFavorite, favorites } = useFavoritesStore();
   const [isHydrated, setIsHydrated] = useState(false);
 
+  const addressParts = car.address.split(",");
+  const city = addressParts[1]?.trim();
+  const country = addressParts[2]?.trim();
+
   useEffect(() => {
     setIsHydrated(true);
   }, []);
@@ -42,7 +46,9 @@ const Item = ({ car }: ItemProps) => {
       </div>
 
       <div className={css.groupTags}>
-        <p className={`${css.address} ${css.tag}`}>{car.address}</p>
+        <p className={`${css.address} ${css.tag}`}>
+          {city}, {country}
+        </p>
         <p className={`${css.rentalCompany} ${css.tag}`}>{car.rentalCompany}</p>
         <p className={`${css.type} ${css.tag}`}>{car.type}</p>
         <p className={`${css.mileage} ${css.tag}`}>{car.mileage}</p>
