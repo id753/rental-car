@@ -27,9 +27,17 @@ export type CarsResponse = {
   totalPages: number;
 };
 
-axios.defaults.baseURL = "https://car-rental-api.goit.global/";
+axios.defaults.baseURL = "https://car-rental-api.goit.global";
 
 export const getCars = async (): Promise<CarsResponse> => {
   const res = await axios.get<CarsResponse>("/cars");
+  // console.log("Full URL:", axios.defaults.baseURL + `/cars`);
+
+  return res.data;
+};
+
+export const getCarById = async (id: string) => {
+  const res = await axios.get<Car>(`/cars/${id}`);
+
   return res.data;
 };

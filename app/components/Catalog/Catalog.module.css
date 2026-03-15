@@ -34,6 +34,9 @@
 
   margin: 0 auto 124px;
 }
+.button:hover {
+  border: 1px solid var(--button-hover);
+}
 /* Адаптив для средних экранов  */
 /* @media (max-width: 1200px) {
   .list {

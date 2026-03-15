@@ -1,14 +1,19 @@
 import Image from "next/image";
 import css from "./ItemDetails.module.css";
+import { Car } from "@/app/lib/api";
 
-const ItemDetails = () => {
+interface ItemDetailsProps {
+  car: Car;
+}
+
+const ItemDetails = ({ car }: ItemDetailsProps) => {
   return (
     <div className={css.container}>
       <div className={css.leftColumn}>
         <div className={css.imageContainer}>
           <Image
-            src="/car-placeholder.jpg"
-            alt="Buick Enclave"
+            src={car.img}
+            alt={car.brand}
             width="640"
             height="512"
             className={css.mainImage}
@@ -56,37 +61,38 @@ const ItemDetails = () => {
         <div className={css.contentContainer}>
           <div className={css.header}>
             <div className={css.titleGroup}>
-              <h1 className={css.title}>Buick Enclave, 2008</h1>
-              <p className={css.idCar}>Id: 9582</p>
+              <h1 className={css.title}>
+                {car.brand} <span className={css.model}>{car.model}</span>,{" "}
+                {car.year}
+              </h1>
+              {/* <p className={css.idCar}>Id: {car.id}</p> */}
+              <p className={css.idCar}>Id: {car.id.slice(0, 4)}</p>
             </div>
             <div className={css.locationGroup}>
-              <p className={css.location}> Kyiv, Ukraine</p>
-              <p className={css.mileage}>Mileage: 5 858 km</p>
+              <p className={css.location}> {car.address}</p>
+              <p className={css.mileage}>Mileage: {car.mileage} km</p>
             </div>
-            <p className={css.price}>$40</p>
+            <p className={css.price}>${car.rentalPrice}</p>
           </div>
 
-          <p className={css.description}>
-            The Buick Enclave is a stylish and spacious SUV known for its
-            comfortable ride and luxurious features.
-          </p>
+          <p className={css.description}>{car.description}</p>
 
           <section className={css.section}>
             <h2 className={css.sectionTitle}>Rental Conditions:</h2>
             <ul className={css.specList}>
-              <li>Minimum age : 25</li>
-              <li>Security deposite required </li>
-              <li>Valid driver’s license</li>
+              {car.rentalConditions.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </section>
 
           <section className={css.section}>
             <h2 className={css.sectionTitle}>Car Specifications:</h2>
             <ul className={css.specList}>
-              <li>Year: 2008</li>
-              <li>Type: SUV</li>
-              <li>Fuel Consumption: 10.5</li>
-              <li>Engine Size: 3.6L V6</li>
+              <li>Year: {car.year}</li>
+              <li>Type: {car.type}</li>
+              <li>Fuel Consumption: {car.fuelConsumption}</li>
+              <li>Engine Size: {car.engineSize}</li>
             </ul>
           </section>
 
@@ -95,12 +101,13 @@ const ItemDetails = () => {
               Accessories and functionalities:
             </h2>
             <ul className={css.specList}>
-              <li>Leather seats</li>
-              <li>Panoramic sunroof</li>
-              <li>Remote start</li>
-              <li>Blind-spot monitoring</li>
-              <li>Power liftgate</li>
-              <li>Premium audio system</li>
+              {[...car.accessories, ...car.functionalities].map(
+                (item, index) => (
+                  <li key={index} className={css.specItem}>
+                    {item}
+                  </li>
+                )
+              )}
             </ul>
           </section>
         </div>
