@@ -147,7 +147,9 @@ const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
                 <LocationIcon />
                 {city}, {country}
               </p>
-              <p className={css.mileage}>Mileage: {car.mileage} km</p>
+              <p className={css.mileage}>
+                Mileage: {car.mileage.toLocaleString("ru-RU")} km
+              </p>
             </div>
             <p className={css.price}>${car.rentalPrice}</p>
           </div>

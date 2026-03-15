@@ -18,6 +18,8 @@ const Item = ({ car }: ItemProps) => {
   const city = addressParts[1]?.trim();
   const country = addressParts[2]?.trim();
 
+  // const formattedMileage = car.mileage.toLocaleString("ru-RU");
+
   useEffect(() => {
     setIsHydrated(true);
   }, []);
@@ -51,7 +53,9 @@ const Item = ({ car }: ItemProps) => {
         </p>
         <p className={`${css.rentalCompany} ${css.tag}`}>{car.rentalCompany}</p>
         <p className={`${css.type} ${css.tag}`}>{car.type}</p>
-        <p className={`${css.mileage} ${css.tag}`}>{car.mileage}</p>
+        <p className={`${css.mileage} ${css.tag}`}>
+          {car.mileage.toLocaleString("ru-RU")} km
+        </p>
       </div>
       <Link href={`/cars/${car.id}`} className={css.button}>
         Read more
