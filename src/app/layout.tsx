@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Rental Car | Best Car Rental Service",
     description:
       "Wide selection of cars for any journey. Fast booking and reliable service.",
-    url: "https://your-project-url.vercel.app", // Заменить на  реальный URL после деплоя
+    url: "https://rental-car-eight-flax.vercel.app",
     siteName: "Rental Car",
     images: [
       {
