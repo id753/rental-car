@@ -27,6 +27,13 @@ export type CarsResponse = {
   totalPages: number;
 };
 
+export type NewFormData = {
+  comment: string;
+  date: string;
+  email: string;
+  name: string;
+};
+
 axios.defaults.baseURL = "https://car-rental-api.goit.global";
 
 export const getCars = async (): Promise<CarsResponse> => {
@@ -40,4 +47,12 @@ export const getCarById = async (id: string) => {
   const res = await axios.get<Car>(`/cars/${id}`);
 
   return res.data;
+};
+
+export const createForm = async (data: NewFormData) => {
+  // Имитируем задержку сети
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  // Просто возвращаем данные назад, как будто сервер их принял
+  console.log("Данные успешно отправлены в 'бэкенд':", data);
+  return data;
 };

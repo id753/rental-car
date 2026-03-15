@@ -1,12 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import css from "./ItemDetails.module.css";
-import { Car } from "@/app/lib/api";
+import { Car, createForm, NewFormData } from "@/app/lib/api";
 
 interface ItemDetailsProps {
   car: Car;
 }
 
 const ItemDetails = ({ car }: ItemDetailsProps) => {
+  const handleSubmit = async (formData: FormData) => {
+    const formValues = Object.fromEntries(formData) as NewFormData;
+    // 2. Добавляем айди машины к объекту
+    const data = {
+      ...formValues,
+      carId: car.id,
+    };
+    try {
+      await createForm(data);
+      alert("Booking successful! We will contact you soon.");
+    } catch (error) {
+      alert(`Something went wrong. Please try again. ${error}`);
+    }
+  };
+
   return (
     <div className={css.container}>
       <div className={css.leftColumn}>
@@ -24,7 +41,7 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
           <p className={css.formSubtitle}>
             Stay connected! We are always ready to help you.
           </p>
-          <form className={css.form}>
+          <form action={handleSubmit} className={css.form}>
             <input
               className={css.input}
               name="name"
@@ -42,7 +59,7 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
             <input
               className={css.input}
               name="date"
-              type="text"
+              type="date"
               placeholder="Booking date"
             />
             <textarea

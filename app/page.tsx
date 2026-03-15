@@ -9,7 +9,7 @@ export default function Home() {
         <p className={css.text}>
           Reliable and budget-friendly rentals for any journey
         </p>
-        <Link href="/catalog" className={css.button}>
+        <Link href="/cars" className={css.button}>
           View Catalog
         </Link>
       </div>
