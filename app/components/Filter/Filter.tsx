@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import css from "./Filter.module.css";
 import { useRouter } from "next/navigation";
+import { useFilterDraftStore } from "@/app/src/store/carStore";
 
 interface FilterProps {
   brands: string[];
@@ -10,6 +11,26 @@ interface FilterProps {
 
 const Filter = ({ brands }: FilterProps) => {
   const router = useRouter();
+
+  const { draft, setDraft, clearDraft } = useFilterDraftStore();
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // 2. После первого рендера (useEffect) мы точно знаем, что Zustand прочитал localStorage
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+  const handleChange = (
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    // 4. Коли користувач змінює будь-яке поле форми — оновлюємо стан
+    setDraft({
+      ...draft,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   // Генеруєм масив цін для селекту
   const prices = [];
   for (let i = 30; i <= 200; i += 10) {
@@ -26,14 +47,20 @@ const Filter = ({ brands }: FilterProps) => {
     }
 
     //    filters
-    const brand = formData.get("brand");
-    const price = formData.get("price");
+    let brand = formData.get("brand");
+    let price = formData.get("price");
     const minMileage = kmFrom;
     const maxMileage = kmTo;
 
     // Создаем объект параметров для URL
     const params = new URLSearchParams();
 
+    if (brand === "all") {
+      brand = "";
+    }
+    if (price === "all") {
+      price = "";
+    }
     if (brand) params.set("brand", brand.toString());
     if (price) params.set("rentalPrice", price.toString());
     if (minMileage) params.set("minMileage", kmFrom.toString());
@@ -41,6 +68,7 @@ const Filter = ({ brands }: FilterProps) => {
     console.log(params);
 
     router.push(`/cars?${params.toString()}`);
+    clearDraft();
   };
 
   return (
@@ -48,11 +76,17 @@ const Filter = ({ brands }: FilterProps) => {
       <form className={css.form} action={handleSubmit}>
         <label className={css.label}>
           Car brand
-          <select name="brand" className={css.select} defaultValue="">
+          <select
+            name="brand"
+            className={css.select}
+            // 3. Используем value. Если еще не гидратировались — ставим "",
+            value={isHydrated ? draft?.brand || "" : ""}
+            onChange={handleChange}
+          >
             <option value="" hidden>
               Choose a brand
             </option>
-            <option value="">All brands</option>
+            <option value="all">All brands</option>
             {brands.map((item, index) => (
               <option key={index} value={item}>
                 {item}
@@ -63,10 +97,17 @@ const Filter = ({ brands }: FilterProps) => {
 
         <label className={css.label}>
           Price/ 1 hour
-          <select name="price" className={css.select} defaultValue="">
+          <select
+            name="price"
+            className={css.select}
+            value={isHydrated ? draft?.price || "" : ""}
+            onChange={handleChange}
+          >
             <option value="" hidden>
               Choose a price
             </option>
+
+            <option value="all">All price</option>
 
             {prices.map((item) => (
               <option key={item} value={item}>
@@ -83,13 +124,19 @@ const Filter = ({ brands }: FilterProps) => {
               type="number"
               name="kmFrom"
               placeholder="From"
+              min="0" // Запрещает выбор отрицательных чисел через стрелочки
               className={css.inputFrom}
+              value={isHydrated ? draft?.kmFrom || "" : ""}
+              onChange={handleChange}
             />
             <input
               type="number"
               name="kmTo"
               placeholder="To"
+              min="0" // Запрещает выбор отрицательных чисел через стрелочки
               className={css.inputTo}
+              value={isHydrated ? draft?.kmTo || "" : ""}
+              onChange={handleChange}
             />
           </div>
         </fieldset>

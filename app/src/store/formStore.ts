@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 
 type FormDraftStore = {
   draft: NewFormData;
-  setDraft: (note: NewFormData) => void;
+  setDraft: (form: NewFormData) => void;
   clearDraft: () => void;
 };
 
