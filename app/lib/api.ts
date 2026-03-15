@@ -36,8 +36,16 @@ export type NewFormData = {
 
 axios.defaults.baseURL = "https://car-rental-api.goit.global";
 
-export const getCars = async (): Promise<CarsResponse> => {
-  const res = await axios.get<CarsResponse>("/cars");
+export const getCars = async (
+  page: number = 1,
+  limit: number = 12
+): Promise<CarsResponse> => {
+  const res = await axios.get<CarsResponse>("/cars", {
+    params: {
+      page,
+      limit,
+    },
+  });
   // console.log("Full URL:", axios.defaults.baseURL + `/cars`);
 
   return res.data;

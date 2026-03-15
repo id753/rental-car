@@ -16,7 +16,7 @@ const CatalogPage = async () => {
       <Filter />
 
       {data.cars && data.cars.length > 0 ? (
-        <Catalog cars={data.cars} />
+        <Catalog initialCars={data.cars} />
       ) : (
         <p>Cars not found.</p>
       )}
