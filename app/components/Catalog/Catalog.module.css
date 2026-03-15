@@ -19,13 +19,13 @@
 }
 
 .button {
-  display: block; /* Позволяет margin: 0 auto работать */
+  display: block;
   font-family: var(--font-family);
   font-weight: 600;
   font-size: 16px;
   line-height: 125%;
   color: var(--main);
-
+  background-color: rgb(255, 255, 255);
   border: 1px solid var(--button);
   border-radius: 12px;
   padding: 12px 10px;

@@ -16,7 +16,6 @@ const Filter = ({ brands }: FilterProps) => {
   const { draft, setDraft, clearDraft } = useFilterDraftStore();
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // 2. После первого рендера (useEffect) мы точно знаем, что Zustand прочитал localStorage
   useEffect(() => {
     setIsHydrated(true);
   }, []);

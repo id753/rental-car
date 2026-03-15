@@ -45,7 +45,6 @@
 
 .groupTitle {
   display: flex;
-  /* justify-content: space-between; */
   color: var(--main);
   margin-top: 16px;
 }
