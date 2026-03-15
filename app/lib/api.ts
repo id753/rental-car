@@ -34,7 +34,7 @@ export type NewFormData = {
   name: string;
 };
 
-axios.defaults.baseURL = "https://car-rental-api.goit.global";
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const getCars = async (
   page: number = 1,
