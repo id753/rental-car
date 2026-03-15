@@ -1,4 +1,4 @@
-import { NewFormData } from "@/app/lib/api";
+import { NewFormData } from "../services/lib/api";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 

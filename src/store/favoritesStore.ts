@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { Car } from "@/app/lib/api";
+import { Car } from "../services/lib/api";
 
 interface FavoritesState {
   favorites: Car[];
