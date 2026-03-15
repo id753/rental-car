@@ -3,15 +3,27 @@
 import Image from "next/image";
 import css from "./ItemDetails.module.css";
 import { Car, createForm, NewFormData } from "@/app/lib/api";
+import { useFormDraftStore } from "@/app/src/store/formStore";
 
 interface ItemDetailsProps {
   car: Car;
 }
 
 const ItemDetails = ({ car }: ItemDetailsProps) => {
+  const { draft, setDraft, clearDraft } = useFormDraftStore();
+  const handleChange = (
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setDraft({
+      ...draft,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const handleSubmit = async (formData: FormData) => {
     const formValues = Object.fromEntries(formData) as NewFormData;
-    // 2. Добавляем айди машины к объекту
     const data = {
       ...formValues,
       carId: car.id,
@@ -19,6 +31,7 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
     try {
       await createForm(data);
       alert("Booking successful! We will contact you soon.");
+      clearDraft();
     } catch (error) {
       alert(`Something went wrong. Please try again. ${error}`);
     }
@@ -48,6 +61,8 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
               type="text"
               placeholder="Name*"
               required
+              defaultValue={draft.name}
+              onChange={handleChange}
             />
             <input
               className={css.input}
@@ -55,17 +70,23 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
               type="email"
               placeholder="Email*"
               required
+              onChange={handleChange}
+              defaultValue={draft.email}
             />
             <input
               className={css.input}
               name="date"
               type="date"
               placeholder="Booking date"
+              onChange={handleChange}
+              defaultValue={draft.date}
             />
             <textarea
               className={css.textarea}
               name="comment"
               placeholder="Comment"
+              onChange={handleChange}
+              defaultValue={draft.comment}
             ></textarea>
             <button className={css.submitButton} type="submit">
               Send
@@ -82,7 +103,6 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
                 {car.brand} <span className={css.model}>{car.model}</span>,{" "}
                 {car.year}
               </h1>
-              {/* <p className={css.idCar}>Id: {car.id}</p> */}
               <p className={css.idCar}>Id: {car.id.slice(0, 4)}</p>
             </div>
             <div className={css.locationGroup}>
