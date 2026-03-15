@@ -1,5 +1,5 @@
 import Link from "next/link";
-import css from "../app/src/styles/not-found.module.css";
+import css from "../styles/not-found.module.css";
 
 const NotFound = () => {
   return (

@@ -1,8 +1,9 @@
 // app\catalog\page.tsx
 import React from "react";
-import Filter from "../components/Filter/Filter";
-import Catalog from "../components/Catalog/Catalog";
-import { getBrands, getCars } from "../lib/api";
+
+import Filter from "@/src/components/Filter/Filter";
+import Catalog from "@/src/components/Catalog/Catalog";
+import { getBrands, getCars } from "@/src/services/lib/api";
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-import { Header } from "./components/Header/Header";
-import TanStackProvider from "./components/TanStackProvider/TanStackProvider";
+import TanStackProvider from "../components/TanStackProvider/TanStackProvider";
+import { Header } from "../components/Header/Header";
 
 const manropeSans = Manrope({
   variable: "--font-manrope-sans",

@@ -1,5 +1,5 @@
-import ItemDetails from "@/app/components/ItemDetails/ItemDetails";
-import { getCarById } from "@/app/lib/api";
+import ItemDetails from "../../../components/ItemDetails/ItemDetails";
+import { getCarById } from "../../../services/lib/api";
 import {
   dehydrate,
   HydrationBoundary,

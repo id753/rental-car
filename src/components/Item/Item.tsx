@@ -2,9 +2,9 @@ import Image from "next/image";
 import css from "./Item.module.css";
 import React, { useEffect, useState } from "react";
 import { HeartIcon } from "../Icons/Icons";
-import { Car } from "@/app/lib/api";
+import { Car } from "../../services/lib/api";
 import Link from "next/link";
-import { useFavoritesStore } from "@/app/src/store/favoritesStore";
+import { useFavoritesStore } from "@/src/store/favoritesStore";
 
 interface ItemProps {
   car: Car; // объект car типа Car

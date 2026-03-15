@@ -2,8 +2,13 @@
 
 import Image from "next/image";
 import css from "./ItemDetails.module.css";
-import { Car, createForm, getCarById, NewFormData } from "@/app/lib/api";
-import { useFormDraftStore } from "@/app/src/store/formStore";
+import {
+  Car,
+  createForm,
+  getCarById,
+  NewFormData,
+} from "../../services/lib/api";
+
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import {
@@ -14,6 +19,7 @@ import {
   GearIcon,
   LocationIcon,
 } from "../Icons/Icons";
+import { useFormDraftStore } from "@/src/store/formStore";
 
 interface ItemDetailsProps {
   car: Car;

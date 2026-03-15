@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import css from "./Filter.module.css";
 import { useRouter } from "next/navigation";
-import { useFilterDraftStore } from "@/app/src/store/carStore";
-import { DownIcon } from "../Icons/Icons";
+
+import { useFilterDraftStore } from "@/src/store/carStore";
 
 interface FilterProps {
   brands: string[];

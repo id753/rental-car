@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { Car, getCars } from "../../lib/api";
+import { Car, getCars } from "../../services/lib/api";
 import Item from "../Item/Item";
 import css from "./Catalog.module.css";
 import { useSearchParams } from "next/navigation";
