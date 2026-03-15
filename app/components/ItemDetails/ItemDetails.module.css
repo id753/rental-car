@@ -5,6 +5,7 @@
   align-items: flex-start;
   padding-left: 120px;
   padding-right: 120px;
+  padding-bottom: 104px;
   align-items: stretch;
   /* Это значение по умолчанию, оно делает колонки равными */
 }
