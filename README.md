@@ -1,13 +1,13 @@
-## 🚗  RentalCar — Car Rental Service
+# 🚗  RentalCar — Car Rental Service
 
-### RentalCar — це сучасний веб-додаток для оренди автомобілів в Україні. Проект реалізований як Single Page Application (SPA) на базі Next.js з використанням серверного рендерингу, динамічної маршрутизації та глобального управління станом.
+## RentalCar — це сучасний веб-додаток для оренди автомобілів в Україні. Проект реалізований як Single Page Application (SPA) на базі Next.js з використанням серверного рендерингу, динамічної маршрутизації та глобального управління станом.
 
-🔗 Посилання на проект
+### 🔗 Посилання на проект
     Live Demo: [rental-car-eight-flax.vercel.app](https://rental-car-eight-flax.vercel.app/)
     Backend API Docs: [GoIT Car Rental API](https://car-rental-api.goit.global/api-docs/#/)
     
 
-🛠 Технологічний стек
+### 🛠 Технологічний стек
 
     Framework: Next.js (App Router) — для швидкого завантаження та SEO.
     Language: TypeScript — для типізації та надійності коду.
@@ -15,7 +15,7 @@
     Data Fetching: Axios + TanStack Query — для кешування та зручної роботи з API.
     Styling: CSS Modules.
 
-  📋 Функціонал
+  ### 📋 Функціонал
     Каталог з пагінацією: Завантаження автомобілів порціями через кнопку "Load More".
     Складна фільтрація (Backend-side):
 
@@ -33,7 +33,7 @@ SEO Оптимізація: Динамічні мета-теги для кожн
 
 
 
-🚀 Як запустити локально
+### 🚀 Як запустити локально
     Клонуйте репозиторій:
       
     git clone https://github.com/your-username/rental-car.git
@@ -50,7 +50,7 @@ SEO Оптимізація: Динамічні мета-теги для кожн
 
     Відкрийте http://localhost:3000 у вашому браузері.
 
-Контакти
+### Контакти
 
 Eugene O. — Junior Frontend Developer
 
