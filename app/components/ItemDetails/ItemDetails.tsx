@@ -2,15 +2,38 @@
 
 import Image from "next/image";
 import css from "./ItemDetails.module.css";
-import { Car, createForm, NewFormData } from "@/app/lib/api";
+import { Car, createForm, getCarById, NewFormData } from "@/app/lib/api";
 import { useFormDraftStore } from "@/app/src/store/formStore";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useParams } from "next/navigation";
 
 interface ItemDetailsProps {
   car: Car;
 }
 
-const ItemDetails = ({ car }: ItemDetailsProps) => {
+const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
+  const { id } = useParams<{ id: string }>();
+
+  const { data: car = initialCar } = useQuery({
+    queryKey: ["car", id],
+    queryFn: () => getCarById(id),
+    initialData: initialCar,
+    refetchOnMount: false,
+  });
+
   const { draft, setDraft, clearDraft } = useFormDraftStore();
+
+  const { mutate } = useMutation({
+    mutationFn: createForm,
+    onSuccess: () => {
+      alert("Booking successful! We will contact you soon.");
+      clearDraft();
+    },
+    onError: (error: Error) => {
+      alert(`Something went wrong: ${error.message}`);
+    },
+  });
+
   const handleChange = (
     event: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -22,19 +45,14 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
     });
   };
 
-  const handleSubmit = async (formData: FormData) => {
+  const handleSubmit = (formData: FormData) => {
     const formValues = Object.fromEntries(formData) as NewFormData;
-    const data = {
+    const data: NewFormData & { carId: string } = {
       ...formValues,
       carId: car.id,
     };
-    try {
-      await createForm(data);
-      alert("Booking successful! We will contact you soon.");
-      clearDraft();
-    } catch (error) {
-      alert(`Something went wrong. Please try again. ${error}`);
-    }
+    // Вызываем мутацию для отправки данных на сервер
+    mutate(data);
   };
 
   return (
@@ -44,9 +62,10 @@ const ItemDetails = ({ car }: ItemDetailsProps) => {
           <Image
             src={car.img}
             alt={car.brand}
-            width="640"
-            height="512"
+            width={640}
+            height={512}
             className={css.mainImage}
+            priority
           />
         </div>
         <div className={css.formContainer}>

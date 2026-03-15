@@ -1,5 +1,10 @@
 import ItemDetails from "@/app/components/ItemDetails/ItemDetails";
 import { getCarById } from "@/app/lib/api";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
 import React from "react";
 
 type Props = {
@@ -8,11 +13,20 @@ type Props = {
 
 const CarPage = async ({ params }: Props) => {
   const { id } = await params;
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["car", id],
+    queryFn: () => getCarById(id),
+  });
+
   const car = await getCarById(id);
 
   return (
     <section>
-      <ItemDetails car={car} />
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <ItemDetails car={car} />
+      </HydrationBoundary>
     </section>
   );
 };
