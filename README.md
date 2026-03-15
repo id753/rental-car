@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚗 RentalCar — Car Rental Service
 
-## Getting Started
+RentalCar — це сучасний веб-додаток для оренди автомобілів в Україні. Проект реалізований як Single Page Application (SPA) на базі Next.js з використанням серверного рендерингу, динамічної маршрутизації та глобального управління станом.
+🔗 Посилання на проект
+    Live Demo: rental-car-eight-flax.vercel.app
+    Backend API Docs: GoIT Car Rental API
+    
 
-First, run the development server:
+🛠 Технологічний стек
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    Framework: Next.js (App Router) — для швидкого завантаження та SEO.
+    Language: TypeScript — для типізації та надійності коду.
+    State Management: Zustand — легке та швидке управління глобальним станом.
+    Data Fetching: Axios + TanStack Query — для кешування та зручної роботи з API.
+    Styling: CSS Modules.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  📋 Функціонал
+    Каталог з пагінацією: Завантаження автомобілів порціями через кнопку "Load More".
+    Складна фільтрація (Backend-side):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+        Пошук за брендом.
+        Фільтрація за ціною.
+        Фільтрація за діапазоном пробігу (від/до).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    Система "Обране": Можливість додавати авто в список улюблених. Списки зберігаються в localStorage і не зникають після оновлення сторінки.
+    Детальна сторінка: Динамічні маршрути (/catalog/:id) з повним описом характеристик авто.
+    Форма бронювання: Реалізована валідація та виведення повідомлення про успішну оренду.
+    SEO Оптимізація: Динамічні мета-теги для кожної сторінки автомобіля.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🚀 Як запустити локально
+    Клонуйте репозиторій:
+      
+    git clone https://github.com/your-username/rental-car.git
+  Перейдіть у папку проекту:
+  
+    cd rental-car
+  Встановіть залежності:
+    
+    npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  Запустіть сервер для розробки:
 
-## Deploy on Vercel
+    npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Відкрийте http://localhost:3000 у вашому браузері.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Контакти
+
+Eugene O. — Junior Frontend Developer
+
+LinkedIn | GitHub
