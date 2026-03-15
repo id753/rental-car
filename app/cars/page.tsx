@@ -2,23 +2,36 @@
 import React from "react";
 import Filter from "../components/Filter/Filter";
 import Catalog from "../components/Catalog/Catalog";
-import { getCars } from "../lib/api";
+import { getBrands, getCars } from "../lib/api";
 
-const CatalogPage = async () => {
-  const data = await getCars(); // Теперь тут объект { cars, totalCars, ... }
+interface PageProps {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
+}
 
-  // const cars = await getCars();
+const CatalogPage = async ({ searchParams }: PageProps) => {
+  const filters = await searchParams;
 
-  console.log("cars", data.cars);
+  const data = await getCars(1, 12, filters);
 
+  const brands = await getBrands();
   return (
     <section>
-      <Filter />
+      <Filter brands={brands} />
 
       {data.cars && data.cars.length > 0 ? (
-        <Catalog initialCars={data.cars} />
+        /* key={JSON.stringify(filters)} — это ОЧЕНЬ важно. 
+           Когда фильтры меняются, React полностью пересоздаст компонент Catalog, 
+           что сбросит его внутренний стейт (страницу пагинации и список машин).
+        */
+        <Catalog
+          key={JSON.stringify(filters)}
+          initialCars={data.cars}
+          totalPages={data.totalPages}
+        />
       ) : (
-        <p>Cars not found.</p>
+        <p style={{ textAlign: "center", marginTop: "50px" }}>
+          No cars found matching your criteria.
+        </p>
       )}
     </section>
   );

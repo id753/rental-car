@@ -5,39 +5,38 @@ import { useState } from "react";
 import { Car, getCars } from "../../lib/api";
 import Item from "../Item/Item";
 import css from "./Catalog.module.css";
+import { useSearchParams } from "next/navigation";
 
 interface CatalogProps {
   initialCars: Car[];
+  totalPages: number;
 }
 
-const Catalog = ({ initialCars }: CatalogProps) => {
+const Catalog = ({ initialCars, totalPages }: CatalogProps) => {
   const [cars, setCars] = useState<Car[]>(initialCars);
   const [page, setPage] = useState(1);
-
   const [isLoading, setIsLoading] = useState(false);
-  const [isEnd, setIsEnd] = useState(false); // Чтобы скрыть кнопку, если данных больше нет
+
+  const searchParams = useSearchParams();
+
+  const showButton = page < totalPages;
 
   const handleLoadMore = async () => {
-    if (isLoading) return; // Защита от двойного клика
+    if (isLoading) return;
     setIsLoading(true);
 
     const nextPage = page + 1;
 
     try {
-      // 1. Получаем данные (это объект типа CarsResponse)
-      const data = await getCars(nextPage);
+      const currentFilters = Object.fromEntries(searchParams.entries());
 
-      // 2. Извлекаем массив машин из свойства cars
+      const data = await getCars(nextPage, 12, currentFilters);
+
       const newCars = data.cars;
 
       if (newCars && newCars.length > 0) {
         setCars((prev) => [...prev, ...newCars]);
         setPage(nextPage);
-      }
-
-      // Если мы достигли лимита страниц, скрываем кнопку
-      if (nextPage >= data.totalPages || newCars.length === 0) {
-        setIsEnd(true);
       }
     } catch (error) {
       console.error("Failed to load cars", error);
@@ -56,12 +55,11 @@ const Catalog = ({ initialCars }: CatalogProps) => {
         ))}
       </ul>
 
-      {/* Показываем кнопку только если есть что грузить */}
-      {!isEnd && (
+      {showButton && (
         <button
           onClick={handleLoadMore}
-          disabled={isLoading}
           className={css.button}
+          disabled={isLoading}
         >
           {isLoading ? "Loading..." : "Load more"}
         </button>

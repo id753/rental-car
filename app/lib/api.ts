@@ -38,22 +38,21 @@ axios.defaults.baseURL = "https://car-rental-api.goit.global";
 
 export const getCars = async (
   page: number = 1,
-  limit: number = 12
+  limit: number = 12,
+  filters = {}
 ): Promise<CarsResponse> => {
   const res = await axios.get<CarsResponse>("/cars", {
     params: {
       page,
       limit,
+      ...filters, // Разворачиваем фильтры: brand, rentalPrice и т.д.
     },
   });
-  // console.log("Full URL:", axios.defaults.baseURL + `/cars`);
-
   return res.data;
 };
 
 export const getCarById = async (id: string) => {
   const res = await axios.get<Car>(`/cars/${id}`);
-
   return res.data;
 };
 
@@ -63,4 +62,9 @@ export const createForm = async (data: NewFormData) => {
   // Просто возвращаем данные назад, как будто сервер их принял
   console.log("Данные успешно отправлены в 'бэкенд':", data);
   return data;
+};
+
+export const getBrands = async () => {
+  const res = await axios.get<[]>("/brands");
+  return res.data;
 };
