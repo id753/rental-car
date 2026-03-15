@@ -5,6 +5,8 @@
   align-items: flex-start;
   padding-left: 120px;
   padding-right: 120px;
+  align-items: stretch;
+  /* Это значение по умолчанию, оно делает колонки равными */
 }
 .leftColumn {
   display: flex;
@@ -25,7 +27,7 @@
   width: 100%;
   height: auto;
   border-radius: 19px;
-  background-color: #f80404;
+  background-color: var(--badges);
   object-fit: cover;
 }
 
@@ -109,7 +111,7 @@
   margin-bottom: 68px;
 }
 
-.section {
+.section:not(:last-child) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -198,9 +200,10 @@
 
   border-radius: 12px;
   padding: 12px 20px 56px;
-  width: 576px;
+  /* width: 576px; */
+  width: 100%;
   height: 88px;
-
+  resize: vertical; /* можно тянуть только по высоте. */
   background: var(--inputs);
 }
 

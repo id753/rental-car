@@ -3,6 +3,7 @@ import css from "./Item.module.css";
 import React from "react";
 import { HeartIcon } from "../Icons/Icons";
 import { Car } from "@/app/lib/api";
+import Link from "next/link";
 
 interface ItemProps {
   car: Car; // объект car типа Car
@@ -36,7 +37,10 @@ const Item = ({ car }: ItemProps) => {
         <p className={`${css.type} ${css.tag}`}>{car.type}</p>
         <p className={`${css.mileage} ${css.tag}`}>{car.mileage}</p>
       </div>
-      <button className={css.button}>Read more</button>
+      {/* <button className={css.button}>Read more</button>4 */}
+      <Link href={`/cars/${car.id}`} className={css.button}>
+        Read more
+      </Link>
     </div>
   );
 };
