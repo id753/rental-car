@@ -11,14 +11,19 @@ const Catalog = ({ cars }: CatalogProps) => {
   console.log("Catalog");
 
   return (
-    <ul className={css.list}>
-      {cars.map((item) => (
-        <li key={item.id}>
-          <Item car={item} />
-          {/* {item.brand} {item.model} */}
-        </li>
-      ))}
-    </ul>
+    <section className={css.section}>
+      <ul className={css.list}>
+        {cars.map((item) => (
+          <li key={item.id}>
+            <Item car={item} />
+            {/* {item.brand} {item.model} */}
+          </li>
+        ))}
+      </ul>
+      <button type="submit" className={css.button}>
+        Load more
+      </button>
+    </section>
   );
 };
 

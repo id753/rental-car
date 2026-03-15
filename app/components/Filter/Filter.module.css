@@ -1,10 +1,13 @@
 .filterContainer {
   min-height: 68px;
-  margin-top: 84px;
+  margin: 84px auto 0;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 .form {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .label {
   font-family: var(--font-family);
