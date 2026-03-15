@@ -1,16 +1,24 @@
 import Image from "next/image";
 import css from "./Item.module.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HeartIcon } from "../Icons/Icons";
 import { Car } from "@/app/lib/api";
 import Link from "next/link";
+import { useFavoritesStore } from "@/app/src/store/favoritesStore";
 
 interface ItemProps {
   car: Car; // объект car типа Car
 }
 
 const Item = ({ car }: ItemProps) => {
-  const isFavorite = false;
+  const { toggleFavorite, favorites } = useFavoritesStore();
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  const active = isHydrated && favorites.some((item) => item.id === car.id);
   return (
     <div className={css.container}>
       <div className={css.containerImage}>
@@ -21,7 +29,9 @@ const Item = ({ car }: ItemProps) => {
           height="268"
           className={css.image}
         />
-        <HeartIcon isFavorite={isFavorite} className={css.heartIcon} />
+        <button onClick={() => toggleFavorite(car)} className={css.heartIcon}>
+          <HeartIcon isFavorite={active} />
+        </button>
       </div>
 
       <div className={css.groupTitle}>
@@ -37,7 +47,6 @@ const Item = ({ car }: ItemProps) => {
         <p className={`${css.type} ${css.tag}`}>{car.type}</p>
         <p className={`${css.mileage} ${css.tag}`}>{car.mileage}</p>
       </div>
-      {/* <button className={css.button}>Read more</button>4 */}
       <Link href={`/cars/${car.id}`} className={css.button}>
         Read more
       </Link>

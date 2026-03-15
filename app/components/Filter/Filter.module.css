@@ -43,11 +43,8 @@
 
 .kmGroup {
   display: inline-block;
-  /* outline: none;
-  appearance: none; */
 }
 .inputWrapper {
-  /* margin-right: 16px; */
 }
 
 .inputFrom,
@@ -64,8 +61,8 @@
   line-height: 125%;
   color: var(--main);
 
-  border: none; /* Убирает саму рамку */
-  outline: none; /* Убирает синий контур при клике */
+  border: none;
+  outline: none;
 }
 
 .button {
@@ -85,15 +82,17 @@
   margin-left: 16px;
   margin-top: auto;
 }
-
+.button:hover {
+  background: var(--button-hover);
+}
 .kmGroup {
-  border: none; /* Убирает рамку */
-  padding: 0; /* Убирает стандартные внутренние отступы */
-  margin: 0; /* Убирает внешние отступы */
-  min-width: 0; /* Сбрасывает стандартную минимальную ширину в некоторых браузерах */
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
 }
 
 .kmGroup legend {
   padding: 0;
-  margin-bottom: 8px; /* Расстояние до инпутов */
+  margin-bottom: 8px;
 }

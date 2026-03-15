@@ -224,6 +224,9 @@
   margin: 0 auto;
 }
 
+.submitButton:hover {
+  background: var(--button-hover);
+}
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
