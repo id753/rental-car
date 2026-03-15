@@ -1,4 +1,4 @@
-🚗 ## RentalCar — Car Rental Service
+## 🚗  RentalCar — Car Rental Service
 
 ### RentalCar — це сучасний веб-додаток для оренди автомобілів в Україні. Проект реалізований як Single Page Application (SPA) на базі Next.js з використанням серверного рендерингу, динамічної маршрутизації та глобального управління станом.
 
