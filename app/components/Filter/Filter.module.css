@@ -38,13 +38,45 @@
   border: none; /* Убирает саму рамку */
   outline: none; /* Убирает синий контур при клике */
   /* Самое важное: убирает стандартную стрелочку и стили ОС */
-  /* appearance: none;  */
+  /* appearance: none; */
 }
 
 .kmGroup {
   display: inline-block;
 }
-.inputWrapper {
+.inputsWrapper {
+  display: flex;
+  position: relative;
+  background: var(--inputs);
+  border-radius: 12px;
+  width: 320px;
+  overflow: hidden;
+}
+
+.inputsWrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 1px;
+  height: 44px;
+  background-color: var(--gray-light);
+
+  pointer-events: none;
+}
+
+.inputFrom::placeholder,
+.inputTo::placeholder {
+  color: var(--main);
+}
+
+.inputFrom {
+  border-right: none;
+}
+.inputTo {
+  border-left: none;
 }
 
 .inputFrom,
@@ -52,6 +84,7 @@
   border-right: 1px solid var(--gray-light);
   border-radius: 12px 0 0 12px;
   max-width: 160px;
+  padding-left: 24px;
   height: 44px;
   background: var(--inputs);
 
@@ -64,8 +97,23 @@
   border: none;
   outline: none;
 }
+/* Для Chrome, Safari, Edge и Opera */
+.inputFrom::-webkit-outer-spin-button,
+.inputFrom::-webkit-inner-spin-button,
+.inputTo::-webkit-outer-spin-button,
+.inputTo::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Для Firefox */
+.inputFrom,
+.inputTo {
+  -moz-appearance: textfield;
+  appearance: textfield; /* Стандартное свойство */
+}
 .button {
+  position: relative;
   border: none;
   border-radius: 12px;
   padding: 12px 51px;

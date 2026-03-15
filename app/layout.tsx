@@ -34,7 +34,7 @@ export default function RootLayout({
             <main>{children}</main>
           </div>
 
-          <footer></footer>
+          {/* <footer></footer> */}
         </TanStackProvider>
       </body>
     </html>

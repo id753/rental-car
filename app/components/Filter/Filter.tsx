@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import css from "./Filter.module.css";
 import { useRouter } from "next/navigation";
 import { useFilterDraftStore } from "@/app/src/store/carStore";
+import { DownIcon } from "../Icons/Icons";
 
 interface FilterProps {
   brands: string[];
@@ -76,23 +77,27 @@ const Filter = ({ brands }: FilterProps) => {
       <form className={css.form} action={handleSubmit}>
         <label className={css.label}>
           Car brand
-          <select
-            name="brand"
-            className={css.select}
-            // 3. Используем value. Если еще не гидратировались — ставим "",
-            value={isHydrated ? draft?.brand || "" : ""}
-            onChange={handleChange}
-          >
-            <option value="" hidden>
-              Choose a brand
-            </option>
-            <option value="all">All brands</option>
-            {brands.map((item, index) => (
-              <option key={index} value={item}>
-                {item}
+          <div className={css.selectWrapper}>
+            <select
+              name="brand"
+              className={css.select}
+              // 3. Используем value. Если еще не гидратировались — ставим "",
+              value={isHydrated ? draft?.brand || "" : ""}
+              onChange={handleChange}
+            >
+              <option value="" hidden>
+                Choose a brand
               </option>
-            ))}
-          </select>
+              <option value="all">All brands</option>
+              {brands.map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+            {/* Иконка стрелочки */}
+            {/* <DownIcon className={css.selectIcon} /> */}
+          </div>
         </label>
 
         <label className={css.label}>
@@ -119,7 +124,7 @@ const Filter = ({ brands }: FilterProps) => {
 
         <fieldset className={css.kmGroup}>
           <legend className={css.label}>Сar mileage / km</legend>
-          <div className={css.inputWrapper}>
+          <div className={css.inputsWrapper}>
             <input
               type="number"
               name="kmFrom"

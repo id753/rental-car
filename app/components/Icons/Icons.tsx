@@ -35,7 +35,7 @@ export const HeartIcon = ({ isFavorite, className }: IconProps) => {
   );
 };
 
-export const DownIcon = () => {
+export const DownIcon = ({ className }: IconProps) => {
   return (
     <svg
       width="13"
