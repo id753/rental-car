@@ -178,7 +178,7 @@ export const GearIcon = () => {
   );
 };
 
-export const CheckIcon = () => {
+export const CheckIcon = ({ className }: IconProps) => {
   return (
     <svg
       width="16"

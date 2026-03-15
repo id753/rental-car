@@ -86,7 +86,12 @@
   font-size: 16px;
   line-height: 125%;
   color: var(--main);
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
+
 .mileage {
   font-family: var(--font-family);
   font-weight: 500;
@@ -131,13 +136,23 @@
 
   margin-bottom: 20px;
 }
-
+.specList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
 .specList li {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
   color: var(--main);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .specList li:not(:last-child) {
   margin-bottom: 16px;

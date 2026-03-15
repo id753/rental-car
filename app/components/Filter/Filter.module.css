@@ -40,6 +40,20 @@
   /* Самое важное: убирает стандартную стрелочку и стили ОС */
   /* appearance: none; */
 }
+.select option {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  background: var(--white);
+}
+
+/* .select option:hover {
+  color: var(--main);
+  background: var(--white);
+} */
 
 .kmGroup {
   display: inline-block;

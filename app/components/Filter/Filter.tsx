@@ -47,13 +47,11 @@ const Filter = ({ brands }: FilterProps) => {
       return;
     }
 
-    //    filters
     let brand = formData.get("brand");
     let price = formData.get("price");
     const minMileage = kmFrom;
     const maxMileage = kmTo;
 
-    // Создаем объект параметров для URL
     const params = new URLSearchParams();
 
     if (brand === "all") {
@@ -81,7 +79,7 @@ const Filter = ({ brands }: FilterProps) => {
             <select
               name="brand"
               className={css.select}
-              // 3. Используем value. Если еще не гидратировались — ставим "",
+              //   Используем value. Если еще не гидратировались — ставим "",
               value={isHydrated ? draft?.brand || "" : ""}
               onChange={handleChange}
             >

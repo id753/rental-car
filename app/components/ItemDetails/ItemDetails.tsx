@@ -6,6 +6,14 @@ import { Car, createForm, getCarById, NewFormData } from "@/app/lib/api";
 import { useFormDraftStore } from "@/app/src/store/formStore";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
+import {
+  CalendarIcon,
+  CarIcon,
+  CheckIcon,
+  GazIcon,
+  GearIcon,
+  LocationIcon,
+} from "../Icons/Icons";
 
 interface ItemDetailsProps {
   car: Car;
@@ -125,7 +133,10 @@ const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
               <p className={css.idCar}>Id: {car.id.slice(0, 4)}</p>
             </div>
             <div className={css.locationGroup}>
-              <p className={css.location}> {car.address}</p>
+              <p className={css.location}>
+                <LocationIcon />
+                {car.address}
+              </p>
               <p className={css.mileage}>Mileage: {car.mileage} km</p>
             </div>
             <p className={css.price}>${car.rentalPrice}</p>
@@ -137,7 +148,10 @@ const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
             <h2 className={css.sectionTitle}>Rental Conditions:</h2>
             <ul className={css.specList}>
               {car.rentalConditions.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}>
+                  <CheckIcon className={css.checkIcon} />
+                  <span className={css.specText}>{item}</span>
+                </li>
               ))}
             </ul>
           </section>
@@ -145,10 +159,26 @@ const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
           <section className={css.section}>
             <h2 className={css.sectionTitle}>Car Specifications:</h2>
             <ul className={css.specList}>
-              <li>Year: {car.year}</li>
-              <li>Type: {car.type}</li>
-              <li>Fuel Consumption: {car.fuelConsumption}</li>
-              <li>Engine Size: {car.engineSize}</li>
+              <li>
+                <CalendarIcon />
+                <span className={css.specText}>Year: {car.year}</span>
+              </li>
+              <li>
+                <CarIcon />
+                <span className={css.specText}>Type: {car.type}</span>
+              </li>
+              <li>
+                <GazIcon />
+                <span className={css.specText}>
+                  Fuel Consumption: {car.fuelConsumption}
+                </span>
+              </li>
+              <li>
+                <GearIcon />
+                <span className={css.specText}>
+                  Engine Size: {car.engineSize}
+                </span>
+              </li>
             </ul>
           </section>
 
@@ -159,8 +189,9 @@ const ItemDetails = ({ car: initialCar }: ItemDetailsProps) => {
             <ul className={css.specList}>
               {[...car.accessories, ...car.functionalities].map(
                 (item, index) => (
-                  <li key={index} className={css.specItem}>
-                    {item}
+                  <li key={index}>
+                    <CheckIcon className={css.checkIcon} />
+                    <span className={css.specText}>{item}</span>
                   </li>
                 )
               )}
