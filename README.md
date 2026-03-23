@@ -1,6 +1,6 @@
 # 🚗  RentalCar — Car Rental Service
 
-## RentalCar is a modern web application for a car rental company. The project is implemented as a Single Page Application (SPA) based on Next.js, utilizing Server-Side Rendering (SSR), Dynamic Routing, and Global State Management. This architecture allows users to seamlessly browse the vehicle catalog, apply filters based on key parameters, and book selected models with ease.
+## RentalCar is a modern web application for a car rental company. The project is implemented as a Single Page Application (SPA) based on Next.js, utilizing Server-Side Rendering (SSR), Dynamic Routing, and Global State Management. </br>This architecture allows users to seamlessly browse the vehicle catalog, apply filters based on key parameters, and book selected models with ease.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/64448477-ddf9-4dc4-9af9-414d64de1273" " alt="NoteHub App Screenshot" width="450" />
@@ -28,12 +28,12 @@
 - 🔢 **UI Data Formatting**: Automated mileage formatting to display clean, readable numbers (e.g., 5 000 km instead of 5000).
     
 ## 🛠 Tech Stack
-  Framework: Next.js 14+ (App Router)  — для швидкого завантаження та SEO.
-  Language: TypeScript — для типізації та надійності коду.
-  State Management: Zustand — легке та швидке управління глобальним станом.
-  Data Fetching: Axios + TanStack Query — для кешування та зручної роботи з API.
-  Styling: CSS Modules.
-  Deployment: Vercel
+  - Framework: Next.js 14+ (App Router)  — для швидкого завантаження та SEO.
+  - Language: TypeScript — для типізації та надійності коду.
+  - State Management: Zustand — легке та швидке управління глобальним станом.
+  - Data Fetching: Axios + TanStack Query — для кешування та зручної роботи з API.
+  - Styling: CSS Modules.
+ -  Deployment: Vercel
 
 ## 🛣 Routing Structure
     - / — Home Page: Welcome banner and entry point.
