@@ -63,10 +63,12 @@ Clone the repository
 Install dependencies
 
      npm install
+<!--
 Environment Variables
 Create a .env file in the root directory (use .env.example as a template):
 
     VITE_API_URL=http://localhost:3000
+    -->
 Run the app
 
     npm run dev
