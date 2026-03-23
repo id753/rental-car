@@ -13,19 +13,20 @@
     
 ## ⚙️ Functional Logic & Features
 - 📦 **Server-Side Pagination**: Efficient catalog loading in chunks via the "Load More" button, reducing initial page load time.
-- 🔍 Advanced Backend-Side Filtering:
-
+- 🔍 **Advanced Backend-Side Filtering**:
+  
   - Precise search by Brand.
-        - Price-based filtering.
-        - Mileage range (From/To) selection.
-- Logic: All search parameters are processed on the server to ensure high performance and data accuracy.
-    🧹 State Synchronization: Automatic reset of previous search results when applying new filters to prevent data mixing and ensure relevance.
-    🧡 Favorites System with Persistence: - Users can add vehicles to a personal wishlist.
-        Implementation: Synchronized with localStorage via Zustand middleware, ensuring data persists after page refreshes.
-    🔗 Dynamic Routing: Utilizes Next.js App Router for individual car pages (/catalog/:id), providing a dedicated space for detailed specifications.
-    📝 Booking Flow & Validation: Integrated rental form with client-side validation and instant Toast notifications upon successful submission.
-    📈 SEO & Performance: Implementation of dynamic meta-tags for each vehicle to enhance search engine visibility and social sharing.
-    🔢 UI Data Formatting: Automated mileage formatting to display clean, readable numbers (e.g., 5 000 km instead of 5000).
+  - Price-based filtering.
+   Mileage range (From/To) selection.
+- **Logic**: All search parameters are processed on the server to ensure high performance and data accuracy.
+  
+- 🧹 **State Synchronization**: Automatic reset of previous search results when applying new filters to prevent data mixing and ensure relevance.
+- 🧡 **Favorites System with Persistence**: Users can add vehicles to a personal wishlist.
+        **Implementation**: Synchronized with localStorage via Zustand middleware, ensuring data persists after page refreshes.
+- 🔗 **Dynamic Routing**: Utilizes Next.js App Router for individual car pages (/catalog/:id), providing a dedicated space for detailed specifications.
+- 📝 **Booking Flow & Validation**: Integrated rental form with client-side validation and instant Toast notifications upon successful submission.
+- 📈 **SEO & Performance**: Implementation of dynamic meta-tags for each vehicle to enhance search engine visibility and social sharing.
+- 🔢 **UI Data Formatting**: Automated mileage formatting to display clean, readable numbers (e.g., 5 000 km instead of 5000).
     
 ### 🛠 Технологічний стек
 
