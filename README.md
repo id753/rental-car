@@ -31,13 +31,15 @@
    
   
 ## 🛠 Tech Stack
- ### Frontend Tech Stack: Next.js (App Router), React, TypeScript; Zustand (+ persist middleware), TanStack Query, Axios; CSS Modules; Next.js Metadata API, SEO, Open Graph; Versel
-  - Framework: Next.js 14+ (App Router)  — для швидкого завантаження та SEO.
-  - Language: TypeScript — для типізації та надійності коду.
-  - State Management: Zustand — легке та швидке управління глобальним станом.
-  - Data Fetching: Axios + TanStack Query — для кешування та зручної роботи з API.
-  - Styling: CSS Modules.
- -  Deployment: Vercel
+ ### Frontend Tech Stack: Next.js (App Router), React, TypeScript; Zustand (+ persist middleware), Server Actions, TanStack Query, Axios; CSS Modules; Next.js Metadata API, SEO, Open Graph; Vercel.
+ 
+- Core: Next.js 15 (App Router), TypeScript, React.
+- State Management: Zustand (with persist middleware for Favorites and Drafts).
+- Data Fetching: TanStack Query (React Query) & Axios.
+- Server Logic: Server Actions (Native Form Actions for seamless data mutations).
+- Styling: CSS Modules (Modular and scoped styling).
+- SEO & Meta: Next.js Metadata API (Dynamic Metadata, Open Graph, Web vitals optimization).
+- Deployment: Vercel.
 
 ## 🛣 Routing Structure
     - / — Home Page: Welcome banner and entry point.
