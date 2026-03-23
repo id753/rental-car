@@ -7,7 +7,7 @@
   <br>
   <sub>RentalCar App Screenshot</sub>
 </p>
-### 🔗 Посилання на проект
+
 ## [Live Demo](https://rental-car-eight-flax.vercel.app/) 
 ## [Backend API Docs](https://car-rental-api.goit.global/api-docs/)
     
