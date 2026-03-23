@@ -3,7 +3,7 @@
 ## RentalCar is a modern web application for a car rental company. The project is implemented as a Single Page Application (SPA) based on Next.js, utilizing Server-Side Rendering (SSR), Dynamic Routing, and Global State Management. </br>This architecture allows users to seamlessly browse the vehicle catalog, apply filters based on key parameters, and book selected models with ease.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/64448477-ddf9-4dc4-9af9-414d64de1273" " alt="NoteHub App Screenshot" width="450" />
+  <img src="https://github.com/user-attachments/assets/99869a79-5658-4313-b3c7-856222157a39" " alt="RentalCar App Screenshot" width="450" />
   <br>
   <sub>RentalCar App Screenshot</sub>
 </p>
@@ -26,8 +26,11 @@
 - 📝 **Booking Flow & Validation**: Integrated rental form with client-side validation and instant Toast notifications upon successful submission.
 - 📈 **SEO & Performance**: Implementation of dynamic meta-tags for each vehicle to enhance search engine visibility and social sharing.
 - 🔢 **UI Data Formatting**: Automated mileage formatting to display clean, readable numbers (e.g., 5 000 km instead of 5000).
-    
+
+   
+  
 ## 🛠 Tech Stack
+ ### Frontend Tech Stack: Next.js (App Router), React, TypeScript; Zustand (+ persist middleware), TanStack Query, Axios; CSS Modules; Next.js Metadata API, SEO, Open Graph; Versel
   - Framework: Next.js 14+ (App Router)  — для швидкого завантаження та SEO.
   - Language: TypeScript — для типізації та надійності коду.
   - State Management: Zustand — легке та швидке управління глобальним станом.
@@ -39,6 +42,16 @@
     - / — Home Page: Welcome banner and entry point.
     - /catalog — Catalog Page: Search engine with filters and the car list.
     - /catalog/:id — Details Page: Detailed info and rental form for a specific vehicle.
+
+
+## 💯 **Mentor Reviewed**: This codebase meets industry standards and has undergone an **independent** evaluation by a senior mentor.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3774dc70-a8d4-48c3-b0b9-a4d5549eeea0" " alt="Mentor Reviewed Screenshot" width="450" />
+  <br>
+  <sub>Screenshot of the mentor's feedback</sub>
+</p>
+
     
 ## 🔢 Getting Started (Frontend)
 Clone the repository
