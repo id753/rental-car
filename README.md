@@ -56,7 +56,7 @@
 ## 🔢 Getting Started (Frontend)
 Clone the repository
       
-    git clone git@github.com:id753/note_hub_app.git
+    git clone git@github.com:id753/rental-car.git
 Install dependencies
 
      npm install
