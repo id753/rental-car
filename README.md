@@ -14,7 +14,8 @@
 ## ⚙️ Functional Logic & Features
 - 📦 **Server-Side Pagination**: Efficient catalog loading in chunks via the "Load More" button, reducing initial page load time.
 - 🔍 Advanced Backend-Side Filtering:
-        - Precise search by Brand.
+
+  - Precise search by Brand.
         - Price-based filtering.
         - Mileage range (From/To) selection.
 - Logic: All search parameters are processed on the server to ensure high performance and data accuracy.
