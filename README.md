@@ -21,6 +21,7 @@
 - 🤔**Logic**: All search parameters are processed on the server to ensure high performance and data accuracy.
 - 🧹 **State Synchronization**: Automatic reset of previous search results when applying new filters to prevent data mixing and ensure relevance.
 - 🧡 **Favorites System with Persistence**: Users can add vehicles to a personal wishlist.
+- ⚡ **Hybrid Form Logic**: Implemented Native Form Actions (action={handleSubmit}) integrated with TanStack Query mutations.
 - 📈 **Implementation**: Synchronized with localStorage via Zustand middleware, ensuring data persists after page refreshes.
 - 🔗 **Dynamic Routing**: Utilizes Next.js App Router for individual car pages (/catalog/:id), providing a dedicated space for detailed specifications.
 - 📝 **Booking Flow & Validation**: Integrated rental form with client-side validation and instant Toast notifications upon successful submission.
